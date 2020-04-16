@@ -101,8 +101,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 //            telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
 //            telemetry.update();
 
-            waitForStart();
-
 
 
 

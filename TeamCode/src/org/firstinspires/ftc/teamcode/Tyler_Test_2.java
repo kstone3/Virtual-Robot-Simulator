@@ -95,8 +95,6 @@ public class Tyler_Test_2 extends LinearOpMode {
 //            telemetry.update();
 //        }
 
-        waitForStart();
-
         Orientation angles2 = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
         //Again, simulator doesn't support checking the imu for calibration.
