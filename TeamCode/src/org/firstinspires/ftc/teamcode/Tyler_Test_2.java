@@ -83,19 +83,27 @@ public class Tyler_Test_2 extends LinearOpMode {
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(Gparameters);
 
-        //GYRO
-        while (!isStopRequested() && !imu.isGyroCalibrated())
-        {
+        //In the simulator, the BNO055IMU calibrates instantaneously. Checking calibration status is not supported.
+        //So instead of the while loop checking for calibration, just use a waitForStart call
 
-            telemetry.addData("Mode", "init");
-            telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
-            telemetry.update();
-        }
+        //GYRO
+//        while (!isStopRequested() && !imu.isGyroCalibrated())
+//        {
+//
+//            telemetry.addData("Mode", "init");
+//            telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
+//            telemetry.update();
+//        }
+
+        waitForStart();
+
         Orientation angles2 = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
-        telemetry.addData("Mode", "waiting for start");
-        telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
-        telemetry.update();
+        //Again, simulator doesn't support checking the imu for calibration.
+
+//        telemetry.addData("Mode", "waiting for start");
+//        telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
+//        telemetry.update();
 
 
 
@@ -399,8 +407,8 @@ public class Tyler_Test_2 extends LinearOpMode {
         // robot.lift.setTargetPosition(Distance);
         //robot.L2.setTargetPosition(Distance);
 
-        robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+        robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
 
@@ -427,7 +435,7 @@ public class Tyler_Test_2 extends LinearOpMode {
 
         robot.winch.setTargetPosition(Distance);
 
-        robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+        robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         if(Distance<0){
             robot.winch.setPower(-1);
 
@@ -453,10 +461,10 @@ public class Tyler_Test_2 extends LinearOpMode {
         resetAngle();
 
         //set to Run_TO_POSITION OpMode
-        robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+        robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         runtime.reset();
         if(Distance >0){
@@ -597,10 +605,10 @@ public class Tyler_Test_2 extends LinearOpMode {
 
 
         //set to Run_TO_POSITION OpMode
-        robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+        robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         if (Distance > 0){
 
 
@@ -683,10 +691,10 @@ public class Tyler_Test_2 extends LinearOpMode {
 
 
         //set to Run_TO_POSITION OpMode
-        robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-        robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+        robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         if (Distance > 0){
 
 

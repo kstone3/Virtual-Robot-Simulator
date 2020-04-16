@@ -84,19 +84,24 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             imu = hardwareMap.get(BNO055IMU.class, "imu");
             imu.initialize(Gparameters);
 
-            //GYRO
-            while (!isStopRequested() && !imu.isGyroCalibrated())
-            {
+            //Simulator doesn't support checking the BNO055IMU sensor for calibration. So, replace the
+            //calibration-checking loop with a waitForStart call.
 
-                telemetry.addData("Mode", "init");
-                telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
-                telemetry.update();
-            }
+            //GYRO
+//            while (!isStopRequested() && !imu.isGyroCalibrated())
+//            {
+//
+//                telemetry.addData("Mode", "init");
+//                telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
+//                telemetry.update();
+//            }
             Orientation angles2 = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
-            telemetry.addData("Mode", "waiting for start");
-            telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
-            telemetry.update();
+//            telemetry.addData("Mode", "waiting for start");
+//            telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
+//            telemetry.update();
+
+            waitForStart();
 
 
 
@@ -400,9 +405,14 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             // robot.lift.setTargetPosition(Distance);
             //robot.L2.setTargetPosition(Distance);
 
-            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+            //RUN_USING_ENCODERS is Deprecated in the FTC SDK, and is not included in the virtual_robot simulator.
+            //Use RUN_USING_ENCODER instead.
 
+//            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+
+            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
             if(Distance < 0){
@@ -428,7 +438,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
             robot.winch.setTargetPosition(Distance);
 
-            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);      Deprecated, use RUN_USING_ENCODER
+
+            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             if(Distance<0){
                 robot.winch.setPower(-1);
 
@@ -454,10 +466,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             resetAngle();
 
             //set to Run_TO_POSITION OpMode
-            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+            //RUN_USING_ENCODERS is Deprecated
+//            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+
+            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             runtime.reset();
             if(Distance >0){
@@ -597,11 +615,17 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             robot.rlm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 
-            //set to Run_TO_POSITION OpMode
-            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+            //set to Run_TO_POSITION OpMode. Use RUN_USING_ENCODER rather than RUN_USING_ENCODERS
+
+//            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+
+            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             if (Distance > 0){
 
 
@@ -683,11 +707,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             robot.rlm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 
-            //set to Run_TO_POSITION OpMode
-            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+            //set to Run_TO_POSITION OpMode. Use RUN_USING_ENCODER rather than RUN_USING_ENCODERS
+//            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+//            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+
+            robot.frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rrm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rlm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             if (Distance > 0){
 
 
