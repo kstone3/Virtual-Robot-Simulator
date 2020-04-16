@@ -18,6 +18,12 @@ public interface DcMotor extends DcMotorSimple {
     public enum RunMode {RUN_TO_POSITION, RUN_USING_ENCODER, RUN_WITHOUT_ENCODER, STOP_AND_RESET_ENCODER}
 
     /**
+     *  Enum of ZeroPowerBehavior modes available for DcMotor.
+     *  Note: These will have no effect on the behavior of the simulator
+     */
+    public enum ZeroPowerBehavior {BRAKE, FLOAT, UNKNOWN}
+
+    /**
      * Set operation mode of the motor.
      */
     public void setMode(RunMode mode);
@@ -51,5 +57,13 @@ public interface DcMotor extends DcMotorSimple {
      * @return True if actively approaching a target
      */
     public boolean isBusy();
+
+    /**
+     * Gets the current ZeroPowerBehavior of the DcMotor
+     * @return ZeroPowerBehavior
+     */
+    public ZeroPowerBehavior getZeroPowerBehavior();
+
+    public void setZeroPowerBehavior(ZeroPowerBehavior behavior);
 
 }

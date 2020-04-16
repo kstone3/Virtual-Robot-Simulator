@@ -113,10 +113,12 @@ public class Teleop_test extends LinearOpMode {
 
             }
 
-            if(gamepad2.a && robot.TouchHigh.getState()){
-                robot.claw.setPosition(.12);}
-            else if(gamepad2.b && robot.TouchHigh.getState()){
-                robot.claw.setPosition(.8);}
+
+            //TouchHigh has been commented out in FairBotHardware.java, so commenting out here, too
+//            if(gamepad2.a && robot.TouchHigh.getState()){
+//                robot.claw.setPosition(.12);}
+//            else if(gamepad2.b && robot.TouchHigh.getState()){
+//                robot.claw.setPosition(.8);}
 
             if(gamepad1.a){
                 robot.base.setPosition(1);

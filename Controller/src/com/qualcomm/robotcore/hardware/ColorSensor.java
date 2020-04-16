@@ -22,4 +22,9 @@ public interface ColorSensor extends HardwareDevice {
      */
     public int blue();
 
+    /**
+     * @return alpha
+     */
+    public int alpha();
+
 }
