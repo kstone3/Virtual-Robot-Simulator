@@ -60,8 +60,8 @@ public class Teleop_test extends LinearOpMode {
                 lift=0;}
 
 
-            robot.lift.setPower(-lift);
-            robot.L2.setPower(-lift);
+//            robot.lift.setPower(-lift);
+//            robot.L2.setPower(-lift);
 
 
             if(Math.abs(gamepad1.left_stick_y)>.2){
@@ -121,12 +121,12 @@ public class Teleop_test extends LinearOpMode {
 //                robot.claw.setPosition(.8);}
 
             if(gamepad1.a){
-                robot.base.setPosition(1);
-                robot.base2.setPosition(0);
+//                robot.base.setPosition(1);
+//                robot.base2.setPosition(0);
             }
             else if (gamepad1.b){
-                robot.base.setPosition(0);
-                robot.base2.setPosition(1);
+//                robot.base.setPosition(0);
+//                robot.base2.setPosition(1);
             }
 
 
@@ -135,7 +135,7 @@ public class Teleop_test extends LinearOpMode {
             else{
                 winch= 0;}
 
-            robot.winch.setPower(-winch);
+//            robot.winch.setPower(-winch);
             telemetry.addData("max", max);
             telemetry.addData("fl", fl);
             telemetry.addData("rl", rl);

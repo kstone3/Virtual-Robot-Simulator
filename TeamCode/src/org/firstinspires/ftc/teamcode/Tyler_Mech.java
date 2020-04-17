@@ -135,20 +135,20 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             // convert the RGB values to HSV values.
             // multiply by the SCALE_FACTOR.
             // then cast it back to int (SCALE_FACTOR is a double)
-            Color.RGBToHSV((int) (robot.sensorColor.red() * SCALE_FACTOR),
-                    (int) (robot.sensorColor.green() * SCALE_FACTOR),
-                    (int) (robot.sensorColor.blue() * SCALE_FACTOR),
-                    hsvValues);
+//            Color.RGBToHSV((int) (robot.sensorColor.red() * SCALE_FACTOR),
+//                    (int) (robot.sensorColor.green() * SCALE_FACTOR),
+//                    (int) (robot.sensorColor.blue() * SCALE_FACTOR),
+//                    hsvValues);
 
 
             // send the info back to driver station using telemetry function.
-            telemetry.addData("Distance (cm)",
-                    String.format(Locale.US, "%.02f", robot.sensorDistance.getDistance(DistanceUnit.CM)));
-            telemetry.addData("Alpha", robot.sensorColor.alpha());
-            telemetry.addData("Red  ", robot.sensorColor.red());
-            telemetry.addData("Green", robot.sensorColor.green());
-            telemetry.addData("Blue ", robot.sensorColor.blue());
-            telemetry.addData("Hue", hsvValues[0]);
+//            telemetry.addData("Distance (cm)",
+//                    String.format(Locale.US, "%.02f", robot.sensorDistance.getDistance(DistanceUnit.CM)));
+//            telemetry.addData("Alpha", robot.sensorColor.alpha());
+//            telemetry.addData("Red  ", robot.sensorColor.red());
+//            telemetry.addData("Green", robot.sensorColor.green());
+//            telemetry.addData("Blue ", robot.sensorColor.blue());
+//            telemetry.addData("Hue", hsvValues[0]);
 
 
 
@@ -161,7 +161,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
             lift(1300);
             extend(-1800);
-            robot.claw.setPosition(.8);
+//            robot.claw.setPosition(.8);
             forward(24);
             sleep(500);
             turn(-95);
@@ -171,31 +171,31 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
             // while(opModeIsActive() && seen==0){
             // then cast it back to int (SCALE_FACTOR is a double)
-            Color.RGBToHSV((int) (robot.sensorColor.red() * SCALE_FACTOR),
-                    (int) (robot.sensorColor.green() * SCALE_FACTOR),
-                    (int) (robot.sensorColor.blue() * SCALE_FACTOR),
-                    hsvValues);
+//            Color.RGBToHSV((int) (robot.sensorColor.red() * SCALE_FACTOR),
+//                    (int) (robot.sensorColor.green() * SCALE_FACTOR),
+//                    (int) (robot.sensorColor.blue() * SCALE_FACTOR),
+//                    hsvValues);
 
 
-            telemetry.addData("Alpha", robot.sensorColor.alpha());
-            telemetry.addData("Red  ", robot.sensorColor.red());
-            telemetry.addData("Green", robot.sensorColor.green());
-            telemetry.addData("Blue ", robot.sensorColor.blue());
-            telemetry.addData("Hue", hsvValues[0]);
-            telemetry.addData("sat", hsvValues[1]);
-            telemetry.addData("Val", hsvValues[2]);
+//            telemetry.addData("Alpha", robot.sensorColor.alpha());
+//            telemetry.addData("Red  ", robot.sensorColor.red());
+//            telemetry.addData("Green", robot.sensorColor.green());
+//            telemetry.addData("Blue ", robot.sensorColor.blue());
+//            telemetry.addData("Hue", hsvValues[0]);
+//            telemetry.addData("sat", hsvValues[1]);
+//            telemetry.addData("Val", hsvValues[2]);
             telemetry.update();
 
 
-            Block1 = hsvValues[2];
+//            Block1 = hsvValues[2];
             forward(8);
-            Color.RGBToHSV((int) (robot.sensorColor.red() * SCALE_FACTOR),
-                    (int) (robot.sensorColor.green() * SCALE_FACTOR),
-                    (int) (robot.sensorColor.blue() * SCALE_FACTOR),
-                    hsvValues);
-            Block2 = hsvValues[2];
-            telemetry.addData("Hue", Block1);
-            telemetry.addData("Hue2", Block2);
+//            Color.RGBToHSV((int) (robot.sensorColor.red() * SCALE_FACTOR),
+//                    (int) (robot.sensorColor.green() * SCALE_FACTOR),
+//                    (int) (robot.sensorColor.blue() * SCALE_FACTOR),
+//                    hsvValues);
+//            Block2 = hsvValues[2];
+//            telemetry.addData("Hue", Block1);
+//            telemetry.addData("Hue2", Block2);
             telemetry.update();
             // sleep(5000);
             if( Block1 + 2 > Block2 && Block2 + 2 > Block1){
@@ -204,7 +204,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
                 lift(-1000);
                 extend(-500);
-                robot.claw.setPosition(.8);
+//                robot.claw.setPosition(.8);
                 forward(6);
                 sleep(100);
                 // lift(2000);
@@ -216,7 +216,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
                 lift(-1000);
                 extend(-500);
-                robot.claw.setPosition(.8);
+//                robot.claw.setPosition(.8);
                 forward(6);
                 sleep(100);
                 // lift(2000);
@@ -228,17 +228,17 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
                 lift(-1000);
                 extend(-500);
-                robot.claw.setPosition(.8);
+//                robot.claw.setPosition(.8);
 
                 sleep(100);
                 //  lift(2000);
                 Block = 2;
             }
-            robot.claw.setPosition(.12);
+//            robot.claw.setPosition(.12);
             forward(-7);
             turn(115);
             forward((Block*8)+31);
-            robot.claw.setPosition(.8);
+//            robot.claw.setPosition(.8);
             forward(-10);
 
 
@@ -320,6 +320,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 
         }
+
         public void left(int Distance){
 
             int new_d=Distance *53;
@@ -358,6 +359,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 
         }
+
         public void right(int Distance){
 
             int new_d=Distance *53;
@@ -396,9 +398,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 
         }
-        public void lift(int Distance){
-            robot.lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.L2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        public void lift(int Distance) {
+//            robot.lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.L2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             // robot.lift.setTargetPosition(Distance);
             //robot.L2.setTargetPosition(Distance);
@@ -409,47 +411,47 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 //            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
 //            robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
 
-            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            robot.L2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
-            if(Distance < 0){
-                robot.lift.setPower(-1);
-                robot.L2.setPower(-1);
+            if (Distance < 0) {
+//                robot.lift.setPower(-1);
+//                robot.L2.setPower(-1);
+//
+//                while(opModeIsActive()&&(robot.lift.getCurrentPosition()>Distance)&&(robot.L2.getCurrentPosition()>Distance)){}
+//            }
+//            else if(Distance > 0){
+//                robot.lift.setPower(1);
+//                robot.L2.setPower(1);
+//
+//                while(opModeIsActive()&&(robot.lift.getCurrentPosition()<Distance)&&(robot.L2.getCurrentPosition()<Distance)){}
+//            }
 
-                while(opModeIsActive()&&(robot.lift.getCurrentPosition()>Distance)&&(robot.L2.getCurrentPosition()>Distance)){}
+
+//            robot.lift.setPower(0);
+//            robot.L2.setPower(0);
             }
-            else if(Distance > 0){
-                robot.lift.setPower(1);
-                robot.L2.setPower(1);
-
-                while(opModeIsActive()&&(robot.lift.getCurrentPosition()<Distance)&&(robot.L2.getCurrentPosition()<Distance)){}
-            }
-
-
-
-            robot.lift.setPower(0);
-            robot.L2.setPower(0);
         }
         public void extend(int Distance){
-            robot.winch.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.winch.setTargetPosition(Distance);
-
-//            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);      Deprecated, use RUN_USING_ENCODER
-
-            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            if(Distance<0){
-                robot.winch.setPower(-1);
-
-                while(opModeIsActive()&&(robot.winch.getCurrentPosition()>Distance)){}
-            }
-            if(Distance>0){
-                robot.winch.setPower(1);
-
-                while(opModeIsActive()&&(robot.winch.getCurrentPosition()<Distance)){}
-            }
-            robot.winch.setPower(0);
+//            robot.winch.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//
+//            robot.winch.setTargetPosition(Distance);
+//
+////            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);      Deprecated, use RUN_USING_ENCODER
+//
+//            robot.winch.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            if(Distance<0){
+//                robot.winch.setPower(-1);
+//
+//                while(opModeIsActive()&&(robot.winch.getCurrentPosition()>Distance)){}
+//            }
+//            if(Distance>0){
+//                robot.winch.setPower(1);
+//
+//                while(opModeIsActive()&&(robot.winch.getCurrentPosition()<Distance)){}
+//            }
+//            robot.winch.setPower(0);
 
         }
         public void forward(int Distance){
@@ -461,7 +463,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
             robot.rrm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.rlm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 //    while(opModeIsActive()&&(Math.abs(robot.frm.getCurrentPosition())>0) && (Math.abs(robot.rrm.getCurrentPosition())>0) && (Math.abs(robot.flm.getCurrentPosition())>0) && (Math.abs(robot.rlm.getCurrentPosition())>0)){}
-            resetAngle();
+//            resetAngle();
 
             //set to Run_TO_POSITION OpMode
             //RUN_USING_ENCODERS is Deprecated
