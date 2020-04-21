@@ -74,8 +74,8 @@ public class FairBotHardware
         r_arm = hwMap.get(DcMotor.class, "right_arm");
         sweep = hwMap.get(DcMotor.class, "sweep");*/
         //intake2.setDirection(DcMotor.Direction.REVERSE);
-        flm.setDirection(DcMotor.Direction.REVERSE);
-        rlm.setDirection(DcMotor.Direction.REVERSE);
+        frm.setDirection(DcMotor.Direction.REVERSE);
+        rrm.setDirection(DcMotor.Direction.REVERSE);
 //        lift.setDirection(DcMotor.Direction.REVERSE);
         //r_arm.setDirection(DcMotor.Direction.REVERSE);
         //dumper.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
